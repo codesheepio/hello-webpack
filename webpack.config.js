@@ -1,9 +1,13 @@
 var path = require('path')
 module.exports = {
-  entry: path.resolve('src/index.js'),
+  entry: [
+    'webpack-dev-server/client?http://localhost:8080',
+    path.resolve('src/index.js'),
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve('dist'),
+    publicPath: '/dist/',
   },
   module: {
     loaders: [
@@ -16,5 +20,5 @@ module.exports = {
         loader: 'style!css',
       },
     ],
-  }
+  },
 }
